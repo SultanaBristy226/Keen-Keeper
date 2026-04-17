@@ -7,6 +7,7 @@ import { LuPhoneCall } from "react-icons/lu";
 import { MdHistory } from "react-icons/md";
 import FriendDetailsTimelineCard from "../ui/FriendDetailsTimelineCard";
 import { toast } from "react-toastify";
+import Link from "next/link";
 
 const FriendDetailsPageRight = ({ matchFriend }) => {
   const { days_since_contact, goal, next_due_date } = matchFriend;
@@ -31,10 +32,9 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
       type: btn,
       formatted,
       matchFriend,
-      
     };
 
-    const reverseTimeline =[...timelines, newTimeline ].reverse()
+    const reverseTimeline = [...timelines, newTimeline].reverse();
     setTimelines(reverseTimeline);
 
     if (btn === "call") {
@@ -65,7 +65,7 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
   // console.log({ timelines: timelines });
 
   return (
-    <div className="col-span-1 lg:col-span-2 px-5   space-y-5">
+    <div className="space-y-8">
       <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-10 lg:gap-15">
         <div className="card bg-base-100 justify-center border border-base-200 items-center shadow-sm">
           <div className="p-10 text-center">
@@ -142,10 +142,12 @@ const FriendDetailsPageRight = ({ matchFriend }) => {
           <p className="text-2xl text-black/75 font-semibold">
             Recent Interactions
           </p>
-          <button className="btn text-xl text-black">
-            <MdHistory />
-            Full History
-          </button>
+          <Link href={"/timeline"}>
+            <button className="btn text-xl text-black">
+              <MdHistory />
+              Full History
+            </button>
+          </Link>
         </div>
 
         {
