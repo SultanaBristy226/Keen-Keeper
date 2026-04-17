@@ -11,7 +11,8 @@ const TimelineContextProvider = ({ children }) => {
     timelines,
     setTimelines,
     selectedType,
-    setSelectedType,
+    setSelectedType
+
   };
 
   return (
